@@ -1,0 +1,19 @@
+name: ${project.name}
+version: ${project.version}
+main: com.i0dev.inboxes.InboxesPlugin
+website: ${project.url}
+authors: [ i01 ]
+depend: [ MassiveCore ]
+softdepend: [ PlaceholderAPI ]
+description: ${project.description}
+api-version: 1.20
+permissions:
+  inboxes.basecommand: { description: inboxes basecommand, default: false }
+  inboxes.version: { description: check version, default: false }
+  inboxes.give: { description: give inboxes, default: false }
+  inboxes.open: { description: open inboxes, default: false }
+  inboxes.*:
+    inboxes.basecommand: true
+    inboxes.version: true
+    inboxes.give: true
+    inboxes.open: true
