@@ -22,11 +22,21 @@ public class ActionInboxClaim extends ChestActionAbstract {
     public boolean onClick(InventoryClickEvent event, Player player) {
         List<ItemStack> inboxItems = inbox.getItems();
 
+        if (isPlayerInventoryFull(player)) {
+            player.sendMessage("Your inventory is full, clear a spot before claiming items from your inbox!");
+            return false;
+        }
+
         ItemStack item = inboxItems.get(index + (page == 1 ? 0 : ((page - 1) * 45)));
         inbox.removeVoucher(index);
 
         player.getInventory().addItem(item);
         return false;
+    }
+
+
+    private boolean isPlayerInventoryFull(Player player) {
+        return player.getInventory().firstEmpty() == -1;
     }
 
 }
