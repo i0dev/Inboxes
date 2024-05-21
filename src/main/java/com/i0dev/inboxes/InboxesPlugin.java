@@ -47,10 +47,4 @@ public class InboxesPlugin extends MassivePlugin {
                 InboxesColl.class
         );
     }
-
-    public WorldEditPlugin getWorldEdit() {
-        Plugin p = Bukkit.getServer().getPluginManager().getPlugin("WorldEdit");
-        return p instanceof WorldEditPlugin ? (WorldEditPlugin) p : null;
-    }
-
 }
